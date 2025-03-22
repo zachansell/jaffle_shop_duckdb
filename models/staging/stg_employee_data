@@ -1,0 +1,29 @@
+with source as (
+
+    {#-
+    Normally we would select from the table here, but we are using seeds to load
+    our data in this project
+    #}
+    select * from {{ ref('raw_employee_data_clean') }}
+
+),
+
+renamed as (
+
+    select
+        Employee_ID as eid,
+        Name as name,
+        Age as age,
+        Department as department,
+        Date_Of_Joining as doj,
+        Years_Of_Experience as yoe,
+        Country as country,
+        Salary as salary,
+        Performance_Rating as perfrtg
+
+
+    from source
+
+)
+
+select * from renamed

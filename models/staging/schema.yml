@@ -29,3 +29,9 @@ models:
         tests:
           - accepted_values:
               values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+  - name: stg_employee_data
+    columns:
+      - name: eid
+        tests:
+          - unique
+          - not_null
